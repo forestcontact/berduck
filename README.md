@@ -8,6 +8,6 @@ See [the first day's log](output/2020-12-07.md) for an example of how Berduck ca
 
 Berduck also tags entities, so you can open the output folder in Obsidian and see backlinks waiting for you to elaborate:
 
-![Screenshot\ from\ 2020-12-07\ 10-20-36.png]
+![screenshot.png]
 
 contact [deepfates](twitter.com/deepfates) with any questions
