@@ -10,24 +10,24 @@ class DuckBot(Bot):
         """Method dispatch to do_x commands and goodies.
         Overwrite this to add your own non-command logic,
         but call super().handle_message(message) at the end"""
-        if message.command:
-            if hasattr(self, "do_" + message.command):
-                return await getattr(self, "do_" + message.command)(message)
+        if message.arg0:
+            if hasattr(self, "do_" + message.arg0):
+                return await getattr(self, "do_" + message.arg0)(message)
             suggest_help = " Try /help." if hasattr(self, "do_help") else ""
-            # return f"Sorry! Command {message.command} not recognized!" + suggest_help
-        if message.text == "TERMINATE":
+        if message.full_text == "TERMINATE":
             return "signal session reset"
-        return await self.default(message)
+        if message.full_text:
+            return await self.default(message)
 
     async def do_duck(self, message: Message) -> str:
-        return respond(message.text)
+        return respond(message.full_text)
 
     async def default(self, message: Message) -> Response:
         # if it messages an echoserver, don't get in a loop (or groups)
-        if message.text and not message.group:
+        if message.full_text and not message.group:
             return await self.do_duck(message)
         return None
-        
+
 
 if __name__ == "__main__":
     run_bot(DuckBot)

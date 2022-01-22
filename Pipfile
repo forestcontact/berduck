@@ -9,9 +9,20 @@ pytextrank = "*"
 numpy = "*"
 spacytextblob = "*"
 tweepy = "==3.10.0"
-en-core-web-md = {file = "https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.2.0/en_core_web_md-3.2.0-py3-none-any.whl"}
+asyncpg = "*"
+base58 = "*"
+phonenumbers = "*"
+protobuf = "*"
+ulid2 = "*"
+aiohttp = "*"
+termcolor = "*"
+prometheus-async = "*"
+aioprocessing = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.9"
+
+[packages.en-core-web-md]
+file = "https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.2.0/en_core_web_md-3.2.0-py3-none-any.whl"
