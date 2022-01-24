@@ -5,6 +5,7 @@
 from forest.core import Bot, Message, Response, run_bot
 from berduck.core import respond
 
+
 class DuckBot(Bot):
     async def handle_message(self, message: Message) -> Response:
         """Method dispatch to do_x commands and goodies.
@@ -20,7 +21,17 @@ class DuckBot(Bot):
             return await self.default(message)
 
     async def do_duck(self, message: Message) -> str:
-        return respond(message.full_text)
+        response = respond(message.full_text)
+        return (
+            response.replace("azimuths", "buttcoin", 1)
+            .replace("VICTIMIZATION", "K*** YOUR CUSTOMER", 1)
+            .replace("1/4-INCH", "MUSHROOM", 1)
+        )
+
+    async def do_signalme(self, _: Message) -> Response:
+        """signalme
+        Returns a link to share the bot with friends!"""
+        return f"https://signal.me/#p/{self.bot_number}"
 
     async def default(self, message: Message) -> Response:
         # if it messages an echoserver, don't get in a loop (or groups)
